@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { HomeComponent } from "../home/home.component";
 import { ProductsComponent } from '../products/products.component';
 import { AdminComponent } from '../admin/admin.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,17 @@ import { AdminComponent } from '../admin/admin.component';
         path:'home', component: HomeComponent
       },
       {
-        path:'products', component: ProductsComponent
+        path:'products', component: ProductsComponent,
+        children: [
+          {
+              path: ":id",
+              component: ProductDetailsComponent
+          },
+          {
+              path: "",
+              component: ProductDetailsComponent
+          }
+      ]
       },
       {
         path:'admin', component: AdminComponent

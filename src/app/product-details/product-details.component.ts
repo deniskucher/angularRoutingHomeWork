@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
-  private service: ProductsService) { }
+    private service: ProductsService) { }
 
   ngOnInit() {
     this.activatedRoute.params.forEach((params: Params) => {

@@ -18,12 +18,14 @@ export class ProductsComponent implements OnInit {
     private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.getAll().then(res => this.products = res);
-    console.log('----',this.products);
+    this.productsService.getAll().then(res => {
+      this.products = res;
+      console.log('----',this.products);
+    });
   }
 
   onSelect(selected: Product) {
-    this.router.navigate(["/product", selected.id]);
+    this.router.navigate(["/products", selected.id]);
   }
 
 }
